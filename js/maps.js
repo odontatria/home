@@ -1,10 +1,11 @@
 /* ==========================================================================
-   Odontatria | maps.js — mapa com facade (lazy, zero cookie antes do clique)
+   Odontatria | maps.js — navegação mobile + mapa com facade (lazy)
    ========================================================================== */
 (function () {
   'use strict';
 
-  var MAPA = {
+  /* ---------- Fallback: usado apenas se a página não informar o mapa ---------- */
+  var MAPA_PADRAO = {
     lat: -25.2912750,
     lng: -54.0941105,
     label: 'Odontátria - Clínica Odontológica, Medianeira - PR',
@@ -19,12 +20,82 @@
     '<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 ' +
     '9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>';
 
-  function rotaUrl() {
-    return 'https://www.google.com/maps/dir/?api=1&destination=' +
-           MAPA.lat + ',' + MAPA.lng;
+  /* ==========================================================================
+     1. Menu mobile
+     ========================================================================== */
+  function initNav() {
+    var toggle = document.querySelector('.menu-toggle');
+    var nav = document.querySelector('.main-nav');
+    if (!toggle || !nav) return;
+
+    function fechar() {
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menu');
+    }
+
+    function abrir() {
+      nav.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Fechar menu');
+    }
+
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (nav.classList.contains('is-open')) fechar();
+      else abrir();
+    });
+
+    // Fecha ao clicar em um link do menu
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('a')) fechar();
+    });
+
+    // Fecha ao clicar fora do header
+    document.addEventListener('click', function (e) {
+      if (!nav.classList.contains('is-open')) return;
+      if (!e.target.closest('.site-header')) fechar();
+    });
+
+    // Fecha com ESC e devolve o foco ao botão
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+        fechar();
+        toggle.focus();
+      }
+    });
+
+    // Reset ao voltar para desktop
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900) fechar();
+    });
+
+    fechar();
   }
 
-  function montarFacade(box) {
+  /* ==========================================================================
+     2. Mapa
+     ========================================================================== */
+  function lerConfig(box) {
+    // Prioridade: data-map-src > iframe já presente no HTML > fallback
+    var src = box.getAttribute('data-map-src');
+    var titulo = box.getAttribute('data-map-title');
+    var iframeExistente = box.querySelector('iframe');
+
+    if (!src && iframeExistente) {
+      src = iframeExistente.getAttribute('src');
+      if (!titulo) titulo = iframeExistente.getAttribute('title');
+    }
+
+    return {
+      embed: src || MAPA_PADRAO.embed,
+      titulo: titulo || ('Mapa da localização da ' + MAPA_PADRAO.label),
+      lat: box.getAttribute('data-map-lat') || MAPA_PADRAO.lat,
+      lng: box.getAttribute('data-map-lng') || MAPA_PADRAO.lng
+    };
+  }
+
+  function montarFacade(box, cfg) {
     var btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'map-facade';
@@ -37,18 +108,18 @@
       '<span class="map-facade-cta">Carregar mapa</span>';
 
     btn.addEventListener('click', function () {
-      carregarMapa(box, btn);
+      carregarMapa(box, btn, cfg);
     }, { once: true });
 
     box.appendChild(btn);
   }
 
-  function carregarMapa(box, btn) {
+  function carregarMapa(box, btn, cfg) {
     if (box.classList.contains('is-loaded')) return;
 
     var iframe = document.createElement('iframe');
-    iframe.src = MAPA.embed;
-    iframe.title = 'Mapa da localização da ' + MAPA.label;
+    iframe.src = cfg.embed;
+    iframe.title = cfg.titulo;
     iframe.loading = 'lazy';
     iframe.referrerPolicy = 'strict-origin-when-cross-origin';
     iframe.setAttribute('allowfullscreen', '');
@@ -58,7 +129,8 @@
     iframe.focus({ preventScroll: true });
   }
 
-  function montarAcoes(box) {
+  function montarAcoes(box, cfg) {
+    // Não duplica se o HTML já traz o bloco de rota
     if (document.querySelector('.map-actions')) return;
 
     var wrap = document.createElement('div');
@@ -66,7 +138,8 @@
 
     var rota = document.createElement('a');
     rota.className = 'btn btn-outline';
-    rota.href = rotaUrl();
+    rota.href = 'https://www.google.com/maps/dir/?api=1&destination=' +
+                cfg.lat + ',' + cfg.lng;
     rota.target = '_blank';
     rota.rel = 'noopener';
     rota.textContent = 'Traçar rota até a clínica';
@@ -75,13 +148,23 @@
     box.insertAdjacentElement('afterend', wrap);
   }
 
-  function init() {
+  function initMapa() {
     var box = document.getElementById('map-embed');
     if (!box) return;
 
+    var cfg = lerConfig(box);
+
     box.innerHTML = '';
-    montarFacade(box);
-    montarAcoes(box);
+    montarFacade(box, cfg);
+    montarAcoes(box, cfg);
+  }
+
+  /* ==========================================================================
+     3. Boot
+     ========================================================================== */
+  function init() {
+    initNav();
+    initMapa();
   }
 
   if (document.readyState === 'loading') {
