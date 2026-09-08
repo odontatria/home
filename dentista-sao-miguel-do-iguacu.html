@@ -111,51 +111,73 @@
 </head>
 <body>
 
+<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
 <header class="site-header">
   <div class="container header-inner">
-    <a href="/" class="logo">Odontátria</a>
-    <nav class="main-nav">
-      <a href="#servicos">Serviços</a>
-      <a href="#localizacao">Localização</a>
-      <a href="#faq">Dúvidas</a>
-      <a href="https://wa.me/5545999910401" class="btn btn-outline" rel="noopener">WhatsApp</a>
+    <a class="brand" href="/">
+      <span class="brand-name">Odontátria</span>
+      <span class="brand-tag">Clínica Odontológica — São Miguel do Iguaçu/PR</span>
+    </a>
+    <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu de navegação">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="main-nav" class="main-nav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="/">Início</a></li>
+        <li><a href="dentista-sao-miguel-do-iguacu.html" aria-current="page">Clínica</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="implante-dentario-sao-miguel-do-iguacu.html">Implante</a></li>
+        <li><a href="ortodontia-aparelho-sao-miguel-do-iguacu.html">Ortodontia</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+        <li><a href="https://wa.me/5545999910401" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul>
     </nav>
   </div>
 </header>
 
 <nav class="breadcrumb container" aria-label="Trilha de navegação">
-  <a href="/">Início</a> <span>/</span> <span>Dentista em São Miguel do Iguaçu</span>
+  <ol>
+    <li><a href="/">Início</a></li>
+    <li>Dentista em São Miguel do Iguaçu</li>
+  </ol>
 </nav>
 
-<main>
+<main id="conteudo">
 
   <section class="hero">
     <div class="container">
       <h1>Dentista em São Miguel do Iguaçu - PR</h1>
-      <p class="hero-lead">
+      <p class="hero-intro">
         A Odontátria é uma clínica odontológica localizada no Centro de São Miguel do Iguaçu,
         na R. Duque de Caxias, 516. Atendemos implantes dentários, ortodontia, clareamento,
         odontologia estética e urgências, com planejamento digital e materiais certificados.
       </p>
       <div class="hero-actions">
-        <a href="https://wa.me/5545999910401?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20cl%C3%ADnica%20de%20S%C3%A3o%20Miguel%20do%20Igua%C3%A7u." class="btn" rel="noopener">Agendar avaliação</a>
+        <a href="https://wa.me/5545999910401?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20cl%C3%ADnica%20de%20S%C3%A3o%20Miguel%20do%20Igua%C3%A7u." class="btn btn-primary" target="_blank" rel="noopener">Agendar avaliação</a>
         <a href="tel:+5545999910401" class="btn btn-outline">(45) 99991-0401</a>
       </div>
+      <ul class="hero-facts">
+        <li><strong>Endereço:</strong> R. Duque de Caxias, 516 - Centro</li>
+        <li><strong>Horário:</strong> segunda a sexta, 08h às 18h</li>
+        <li><strong>Atendimento:</strong> São Miguel do Iguaçu e região do Lago de Itaipu</li>
+      </ul>
     </div>
   </section>
 
-  <section id="servicos" class="section">
+  <section id="servicos" class="features">
     <div class="container">
       <h2>Tratamentos odontológicos em São Miguel do Iguaçu</h2>
       <p>
         Reunimos em um único endereço as especialidades mais procuradas pelos moradores de
-        São Miguel do Iguaçu e região do Lago de Itaipu. Cada tratamento começo por
+        São Miguel do Iguaçu e região do Lago de Itaipu. Cada tratamento começa por
         diagnóstico com exame clínico e radiográfico, seguido de plano de tratamento por escrito,
         com etapas, prazos e valores definidos antes de qualquer procedimento.
       </p>
 
-      <div class="cards">
-        <article class="card">
+      <div class="features-grid">
+        <article class="feature-card">
           <h3>Implante dentário</h3>
           <p>
             Reposição de dentes perdidos com implantes de titânio e coroas em zircônia ou
@@ -163,20 +185,20 @@
             quando necessário, enxerto antes da instalação. Também executamos protocolos
             para arcadas totalmente desdentadas.
           </p>
-          <a href="/implante-dentario-sao-miguel-do-iguacu.html">Ver detalhes sobre implantes</a>
+          <p><a href="implante-dentario-sao-miguel-do-iguacu.html">Ver detalhes sobre implantes</a></p>
         </article>
 
-        <article class="card">
+        <article class="feature-card">
           <h3>Ortodontia e aparelho</h3>
           <p>
             Correção de mordida e alinhamento com aparelho fixo metálico, autoligado,
             estético ou alinhadores transparentes. Acompanhamento mensal na própria
             clínica, sem necessidade de deslocamento para Foz do Iguaçu ou Cascavel.
           </p>
-          <a href="/ortodontia-aparelho-sao-miguel-do-iguacu.html">Ver detalhes sobre ortodontia</a>
+          <p><a href="ortodontia-aparelho-sao-miguel-do-iguacu.html">Ver detalhes sobre ortodontia</a></p>
         </article>
 
-        <article class="card">
+        <article class="feature-card">
           <h3>Clareamento dental</h3>
           <p>
             Clareamento de consultório, caseiro supervisionado ou combinado, com controle
@@ -185,7 +207,7 @@
           </p>
         </article>
 
-        <article class="card">
+        <article class="feature-card">
           <h3>Odontologia estética</h3>
           <p>
             Lentes de contato dental, facetas em resina e recontorno gengival para
@@ -194,7 +216,7 @@
           </p>
         </article>
 
-        <article class="card">
+        <article class="feature-card">
           <h3>Urgência odontológica</h3>
           <p>
             Dor de dente, pulpite, abscesso, dente fraturado ou aparelho machucando:
@@ -203,7 +225,7 @@
           </p>
         </article>
 
-        <article class="card">
+        <article class="feature-card">
           <h3>Prevenção e limpeza</h3>
           <p>
             Profilaxia, raspagem, aplicação de flúor e tratamento de gengivite e
@@ -215,10 +237,10 @@
     </div>
   </section>
 
-  <section class="section section-alt">
-    <div class="container">
+  <section class="container content-blocks">
+    <div class="content-block">
       <h2>Por que escolher a Odontátria em São Miguel do Iguaçu</h2>
-      <ul class="list-check">
+      <ul>
         <li><strong>Endereço no Centro:</strong> R. Duque de Caxias, 516, com acesso fácil a pé para quem mora na região central.</li>
         <li><strong>Diagnóstico por imagem:</strong> radiografias e indicação de tomografia para planejamento de implantes e canais.</li>
         <li><strong>Orçamento fechado:</strong> plano de tratamento detalhado, sem cobrança de etapas não previstas.</li>
@@ -228,7 +250,7 @@
     </div>
   </section>
 
-  <section id="localizacao" class="section map-section">
+  <section id="localizacao" class="map-section">
     <div class="container">
       <h2>Como chegar à clínica</h2>
       <address class="nap">
@@ -239,60 +261,51 @@
         Segunda a sexta, 08h às 18h
       </address>
 
-      <div id="map-embed" class="map-embed">
-        <iframe
-          title="Mapa da clínica Odontátria em São Miguel do Iguaçu - PR"
-          src="https://www.google.com/maps?q=-25.344489,-54.240963&hl=pt-BR&z=17&output=embed"
-          width="100%" height="380" style="border:0"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen></iframe>
-      </div>
-
-      <div class="map-actions">
-        <a class="btn btn-outline" rel="noopener" target="_blank"
-           href="https://www.google.com/maps/dir/?api=1&destination=-25.344489,-54.240963">
-          Traçar rota até a clínica
-        </a>
-      </div>
+      <div id="map-embed"
+           data-map-src="https://www.google.com/maps?q=-25.344489,-54.240963&hl=pt-BR&z=17&output=embed"
+           data-map-title="Mapa da clínica Odontátria em São Miguel do Iguaçu - PR"
+           data-map-lat="-25.344489"
+           data-map-lng="-54.240963"></div>
     </div>
   </section>
 
-  <section id="faq" class="section">
-    <div class="container">
-      <h2>Perguntas frequentes</h2>
+  <section id="faq" class="container">
+    <h2>Perguntas frequentes</h2>
 
-      <details>
-        <summary>Onde fica a clínica odontológica em São Miguel do Iguaçu?</summary>
-        <p>Na R. Duque de Caxias, 516, Centro de São Miguel do Iguaçu - PR, próxima à região central da cidade.</p>
-      </details>
+    <details class="faq-item">
+      <summary>Onde fica a clínica odontológica em São Miguel do Iguaçu?</summary>
+      <p>Na R. Duque de Caxias, 516, Centro de São Miguel do Iguaçu - PR, próxima à região central da cidade.</p>
+    </details>
 
-      <details>
-        <summary>A clínica atende urgência odontológica?</summary>
-        <p>Sim. Dor de dente, trauma dental, abscesso e restauração fraturada têm prioridade de encaixe. Entre em contato pelo WhatsApp (45) 99991-0401 descrevendo o sintoma.</p>
-      </details>
+    <details class="faq-item">
+      <summary>A clínica atende urgência odontológica?</summary>
+      <p>Sim. Dor de dente, trauma dental, abscesso e restauração fraturada têm prioridade de encaixe. Entre em contato pelo WhatsApp (45) 99991-0401 descrevendo o sintoma.</p>
+    </details>
 
-      <details>
-        <summary>Quanto custa um implante dentário?</summary>
-        <p>Depende do tipo de implante, da necessidade de enxerto ósseo e do material da coroa. O orçamento é definido após avaliação clínica com exame de imagem.</p>
-      </details>
+    <details class="faq-item">
+      <summary>Quanto custa um implante dentário?</summary>
+      <p>Depende do tipo de implante, da necessidade de enxerto ósseo e do material da coroa. O orçamento é definido após avaliação clínica com exame de imagem.</p>
+    </details>
 
-      <details>
-        <summary>A clínica aceita convênio odontológico?</summary>
-        <p>Consulte as operadoras conveniadas pelo WhatsApp. Também há parcelamento em cartão de crédito.</p>
-      </details>
+    <details class="faq-item">
+      <summary>A clínica aceita convênio odontológico?</summary>
+      <p>Consulte as operadoras conveniadas pelo WhatsApp. Também há parcelamento em cartão de crédito.</p>
+    </details>
 
-      <details>
-        <summary>Atende pacientes de outras cidades da região?</summary>
-        <p>Sim. Recebemos pacientes de Itaipulândia, Santa Terezinha de Itaipu, Serranópolis do Iguaçu e Medianeira.</p>
-      </details>
-    </div>
+    <details class="faq-item">
+      <summary>Atende pacientes de outras cidades da região?</summary>
+      <p>Sim. Recebemos pacientes de Itaipulândia, Santa Terezinha de Itaipu, Serranópolis do Iguaçu e Medianeira.</p>
+    </details>
   </section>
 
-  <section class="section cta-final">
+  <section class="contact">
     <div class="container">
       <h2>Agende sua avaliação</h2>
       <p>Responda em poucos minutos pelo WhatsApp e receba um horário disponível na clínica do Centro de São Miguel do Iguaçu.</p>
-      <a href="https://wa.me/5545999910401?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20odontol%C3%B3gica." class="btn" rel="noopener">Falar no WhatsApp</a>
+      <div class="hero-actions">
+        <a href="https://wa.me/5545999910401?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20odontol%C3%B3gica." class="btn btn-primary" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a href="tel:+5545999910401" class="btn btn-outline">(45) 99991-0401</a>
+      </div>
     </div>
   </section>
 
@@ -300,11 +313,38 @@
 
 <footer class="site-footer">
   <div class="container">
-    <p><strong>Odontátria</strong> - R. Duque de Caxias, 516 - Centro, São Miguel do Iguaçu - PR, 85877-000</p>
-    <p><a href="tel:+5545999910401">(45) 99991-0401</a></p>
-    <p class="small">&copy; 2026 Odontátria. Todos os direitos reservados.</p>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">Odontátria</p>
+        <p>R. Duque de Caxias, 516 - Centro<br>São Miguel do Iguaçu - PR, 85877-000</p>
+        <p><a href="tel:+5545999910401">(45) 99991-0401</a></p>
+      </div>
+      <div>
+        <p class="footer-title">Tratamentos</p>
+        <ul id="footer-links">
+          <li><a href="implante-dentario-sao-miguel-do-iguacu.html">Implante dentário</a></li>
+          <li><a href="ortodontia-aparelho-sao-miguel-do-iguacu.html">Ortodontia e aparelho</a></li>
+          <li><a href="#servicos">Todos os serviços</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">Atendimento</p>
+        <ul id="footer-links">
+          <li>Segunda a sexta, 08h às 18h</li>
+          <li><a href="#localizacao">Localização e rota</a></li>
+          <li><a href="#faq">Dúvidas frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Odontátria. Todos os direitos reservados.</p>
+    </div>
   </div>
 </footer>
+
+<a class="whatsapp-float" href="https://wa.me/5545999910401" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.02c-.24.68-1.4 1.3-1.93 1.35-.53.05-1.02.07-1.75-.18-.42-.14-.96-.32-1.66-.62-2.92-1.26-4.83-4.2-4.98-4.4-.15-.2-1.19-1.58-1.19-3.02 0-1.43.75-2.14 1.02-2.43.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2 .89 2.15.07.15.12.32.02.51-.1.2-.15.32-.3.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.75 1.23 1.61 1.99 1.11.98 2.04 1.29 2.33 1.43.29.15.46.12.63-.07.17-.2.73-.85.93-1.14.2-.29.39-.24.66-.15.27.1 1.69.8 1.98.94.29.15.48.22.55.34.07.13.07.75-.17 1.43z"/></svg>
+</a>
 
 <script src="js/maps.js" defer></script>
 </body>
